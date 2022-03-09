@@ -7,4 +7,4 @@ Pour y accéder veuillez regarder dans les branches ou en cliquant sur les liens
 
 [@TH3RY](https://github.com/TH3RY) ➝  [ici](https://github.com/AR0ZDEV/LPOO/tree/Thérence)
 
-Vous pouvez retrouvé les différents PDF dans la branche [main](https://github.com/AR0ZDEV/LPOO).
+Vous pouvez retrouvé les différents PDF dans la branche main dans le dossier [PDF](https://github.com/AR0ZDEV/LPOO/tree/main/PDF).
