@@ -16,14 +16,12 @@ public class Individu {
 
 
     public String presentation(){
-        return "Je m’appelle " + prenom + " et je suis âgé(e) de " + age + " an(s). \nJe réside à " + localite + ".";
+        return presentation(1);
     }
 
     public String presentation(int choix){
         String presentation;
         switch (choix){
-            case 1 : presentation = "Je m’appelle " + prenom + " et je suis âgé(e) de " + age + " an(s). \nJe réside à " + localite + ".";
-                break;
             case 2 : presentation = "My firstname is " + prenom + " and I am " + age + " years old. \nI live in " + localite + ".";
                 break;
             case 3 : presentation = "Ik heet " + prenom + " en ik ben " + age + ". \nIk woon in " + localite + ".";
@@ -49,15 +47,21 @@ public class Individu {
         this.prenom = prenom;
     }
     public void setAge(int age){
-        if (0 <= age && age <= 120){
+        if (0 < age && age <= 120){
             this.age = age;
+        }else{
+            if(this.age == Integer.MIN_VALUE){
+                this.age = 1;
+            }
         }
     }
     public void setGenre(char genre){
         if (genre == 'M' || genre == 'F' || genre == 'X'){
             this.genre = genre;
         }else{
-            this.genre = 'X';
+            if(this.genre == Character.MIN_VALUE){
+                this.genre = 'X';
+            }
         }
     }
     public void setLocalite(String localite){

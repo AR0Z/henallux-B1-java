@@ -27,32 +27,24 @@ public class Rencontre {
     private void setPointsLocaux(int pointsLocaux) {
         if (pointsLocaux >= 0){
             this.pointsLocaux = pointsLocaux;
-        }else {
-            this.pointsLocaux = 0;
         }
     }
 
     private void setPointsVisiteurs(int pointsVisiteurs) {
         if (pointsVisiteurs >= 0){
             this.pointsVisiteurs = pointsVisiteurs;
-        }else {
-            this.pointsVisiteurs = 0;
         }
     }
 
     private void setFautesLocaux(int fautesLocaux) {
         if (fautesLocaux >= 0){
             this.fautesLocaux = fautesLocaux;
-        }else {
-            this.fautesLocaux = 0;
         }
     }
 
     private void setFautesVisiteurs(int fautesVisiteurs) {
         if (fautesVisiteurs >= 0){
             this.fautesVisiteurs = fautesVisiteurs;
-        }else {
-            this.fautesVisiteurs = 0;
         }
     }
 
@@ -72,11 +64,11 @@ public class Rencontre {
 
 
 
-    public void ajouterPointsAuxLocaux(){ this.pointsLocaux += 1; }
+    public void ajouterPointsAuxLocaux(){ ajouterPointsAuxLocaux(1); }
 
     public void ajouterPointsAuxLocaux(int points){ this.pointsLocaux += points; }
 
-    public void ajouterPointsAuxVisiteurs(){ this.pointsVisiteurs += 1; }
+    public void ajouterPointsAuxVisiteurs(){ ajouterPointsAuxVisiteurs(1); }
 
     public void ajouterPointsAuxVisiteurs(int points){ this.pointsVisiteurs += points; }
 
@@ -89,23 +81,27 @@ public class Rencontre {
     }
 
     public String vainqueur(){
+        String vainqueur;
         if(pointsLocaux == pointsVisiteurs){
-            return "ex æquo";
+            vainqueur = "ex æquo";
         }else if(pointsLocaux > pointsVisiteurs){
-            return locaux.getNom();
+            vainqueur = locaux.getNom();
         }else{
-            return visiteurs.getNom();
+            vainqueur = visiteurs.getNom();
         }
+        return vainqueur;
     }
 
     public String equipeFairPlay(){
+        String equipeFairPlay;
         if(fautesLocaux == fautesVisiteurs){
-            return "ex æquo";
+            equipeFairPlay = "ex æquo";
         }else if(fautesVisiteurs > fautesLocaux){
-            return locaux.getNom();
+            equipeFairPlay = locaux.getNom();
         }else{
-            return visiteurs.getNom();
+            equipeFairPlay = visiteurs.getNom();
         }
+        return equipeFairPlay;
     }
 
     public boolean exAequo(){ return pointsLocaux == pointsVisiteurs; }

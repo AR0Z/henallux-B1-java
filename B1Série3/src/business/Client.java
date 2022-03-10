@@ -9,7 +9,6 @@ public class Client {
         this.prenom = prenom;
         this.nom = nom;
     }
-
     public String toString() {
         return prenom + " " + nom;
     }

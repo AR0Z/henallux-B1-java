@@ -1,18 +1,58 @@
 package packageLoisir;
 
 public class SejourDisney {
-    private int nbEnfants;
-    private int nbAdultes;
-    private int nbJours;
-    private int nbVehiculesParking;
+    private int nbEnfants; //
+    private int nbAdultes; //
+    private int nbJours; //
+    private int nbVehiculesParking; //
     private boolean avecPMR;
 
-    public SejourDisney(int initNbEnfants, int initNbAdultes, int initNbJours, int initNbVehiculesParking, boolean initAvecPMR){
-        nbEnfants = initNbEnfants;
-        nbAdultes = initNbAdultes;
-        nbJours = initNbJours;
-        nbVehiculesParking =initNbVehiculesParking;
+    public SejourDisney(int nbEnfants, int nbAdultes, int nbJours, int nbVehiculesParking, boolean initAvecPMR){
+        setNbEnfants(nbEnfants);
+        setNbAdultes(nbAdultes);
+        setNbJours(nbJours);
+        setNbVehiculesParking(nbVehiculesParking);
         avecPMR = initAvecPMR;
+    }
+
+    public void setNbEnfants(int nbEnfants) {
+        if(nbEnfants >= 0){
+            this.nbEnfants = nbEnfants;
+        }else{
+            if(this.nbEnfants == Integer.MIN_VALUE){
+                this.nbEnfants = 0;
+            }
+        }
+    }
+
+    public void setNbAdultes(int nbAdultes) {
+        if(nbAdultes >= 0){
+            this.nbAdultes = nbAdultes;
+        }else{
+            if(this.nbAdultes == Integer.MIN_VALUE){
+                this.nbAdultes = 0;
+            }
+        }
+    }
+
+    public void setNbJours(int nbJours) {
+        if(nbJours > 0){
+            this.nbJours = nbJours;
+        }else{
+            if(this.nbJours == Integer.MIN_VALUE){
+                this.nbJours = 1;
+            }
+        }
+    }
+
+    public void setNbVehiculesParking(int nbVehiculesParking) {
+        if(nbVehiculesParking > 0){
+            this.nbVehiculesParking = nbVehiculesParking;
+        }else{
+            if(this.nbVehiculesParking == Integer.MIN_VALUE){
+                this.nbVehiculesParking = 1;
+            }
+        }
     }
 
     public boolean estLongSejour(){
@@ -34,7 +74,7 @@ public class SejourDisney {
     }
 
     public int nbNuiteesEnfantsGratuites(){
-        return nbJours/2;
+        return (nbJours-1)/3;
     }
 
     public double coutHotel(){

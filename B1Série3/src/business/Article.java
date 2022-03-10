@@ -13,8 +13,6 @@ public class Article {
     public void setPrix(double prix) {
         if(prix >= 0){
             this.prix = prix;
-        }else{
-            this.prix = 0;
         }
     }
 

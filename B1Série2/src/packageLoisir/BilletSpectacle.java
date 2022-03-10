@@ -7,7 +7,7 @@ public class BilletSpectacle {
     private double coutDeBase;
     private boolean avecCarteEtudiant;
 
-    BilletSpectacle(String initIntituleSpectacle, String initDateSpectacle, char initCategorie, double initCoutDeBase, boolean initAvecCarteEtudiant){
+    public BilletSpectacle(String initIntituleSpectacle, String initDateSpectacle, char initCategorie, double initCoutDeBase, boolean initAvecCarteEtudiant){
         intituleSpectacle = initIntituleSpectacle;
         dateSpectacle = initDateSpectacle;
         categorie = initCategorie;
@@ -36,12 +36,16 @@ public class BilletSpectacle {
         }
     }
 
-    double prixBillet(){
+    public double prixBillet(){
+        return prixBillet(0);
+    }
+
+    public double prixBillet(int pourc){
         double prix = coutDeBase;
 
         switch (categorie){
             case 'A':
-                prix *= 0.9;
+                prix *= 1.10;
                 break;
             case 'B':
                 prix *= 0.8;
@@ -52,7 +56,7 @@ public class BilletSpectacle {
             prix *= 0.5;
         }
 
-        return prix;
+        return (1 - pourc/100.) * prix;
     }
     String descriptionBillet(){
         return "Billet pour le spectacle intitulé " + intituleSpectacle + " du " + dateSpectacle + " en catégorie " + categorie + (avecCarteEtudiant ? " avec carte étudiant." : ".") + "\npour un total de " + prixBillet() + " euros";

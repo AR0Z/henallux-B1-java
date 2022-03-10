@@ -17,10 +17,11 @@ public class Achat {
     }
 
     public void setNbExemplaires(int nbExemplaires) {
-        if(nbExemplaires >= 0){
+        if(nbExemplaires > 0){
             this.nbExemplaires = nbExemplaires;
         }else{
-            this.nbExemplaires = 1;
+            if(this.nbExemplaires == Integer.MIN_VALUE)
+                this.nbExemplaires = 1;
         }
     }
 
