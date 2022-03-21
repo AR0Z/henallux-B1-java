@@ -21,4 +21,14 @@ public class Livre extends Oeuvre{
         this.nbPages = nbPages;
         this.numeroEtagere = numeroEtagere;
     }
+
+    public String emplacement(){
+        return super.emplacement() + ", étagère " + numeroEtagere;
+    }
+    public String matricule(){
+        return "L" + getCode() + "/" + getNumeroSalle();
+    }
+    public String denomination(){
+        return "Livre";
+    }
 }

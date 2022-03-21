@@ -19,6 +19,18 @@ public class Oeuvre {
         this(code, titre, numeroSalle, anneeAcquisition, null);
     }
 
+    public int getCode() {
+        return code;
+    }
+
+    public int getAnneeAcquisition() {
+        return anneeAcquisition;
+    }
+
+    public int getNumeroSalle() {
+        return numeroSalle;
+    }
+
     public String matricule(){
         return "O" + code;
     }
