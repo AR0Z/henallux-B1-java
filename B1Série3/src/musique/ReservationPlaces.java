@@ -29,8 +29,8 @@ public class ReservationPlaces {
         if(nbPlaces > 0){
             this.nbPlaces = nbPlaces;
         }else{
-            if (nbPlaces == Integer.MIN_VALUE){
-                nbPlaces = 1;
+            if (this.nbPlaces == Integer.MIN_VALUE){
+                this.nbPlaces = 1;
             }
         }
     }

@@ -5,14 +5,14 @@ public class Concert {
     private String date;
     private GroupeMusical groupe;
     private String lieu;
-    private Double prix;
+    private double prix;
 
     public Concert(String libelle, String date,GroupeMusical groupe, String lieu, Double prix) {
         this.libelle = libelle;
         this.date = date;
         this.groupe = groupe;
         this.lieu = lieu;
-        this.prix = prix;
+        setPrix(prix);
     }
 
     public void setPrix(Double prix) {

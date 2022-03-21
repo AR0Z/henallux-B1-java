@@ -8,7 +8,7 @@ public class GroupeMusical {
     public GroupeMusical(String nom, String nomChanteur, int nbMusiciens) {
         this.nom = nom;
         this.nomChanteur = nomChanteur;
-        this.nbMusiciens = nbMusiciens;
+        setNbMusiciens(nbMusiciens);
     }
 
     public void setNbMusiciens(int nbMusiciens) {

@@ -14,22 +14,22 @@ public class Principale {
 
         System.out.println(premierPersonne);
 
-        ReservationPlaces premierReservationPlaces = new ReservationPlaces(premierPersonne, 4, false, premierConcert);
+        ReservationPlaces reservation = new ReservationPlaces(premierPersonne, 4, false, premierConcert);
 
-        System.out.println(premierReservationPlaces.prixTotal());
-        System.out.println(premierReservationPlaces);
-        System.out.println(premierReservationPlaces.getNbPlaces());
-        System.out.println(premierReservationPlaces.EstPaye() ? "déjà payé" : "en attente de paiement");
-        premierReservationPlaces.setEstPaye(true);
-        System.out.println(premierReservationPlaces.EstPaye() ? "déjà payé" : "en attente de paiement");
-        premierReservationPlaces.setNbPlaces(6);
-        System.out.println(premierReservationPlaces);
+        System.out.println(reservation.prixTotal());
+        System.out.println(reservation);
+        System.out.println(reservation.getNbPlaces());
+        System.out.println(reservation.EstPaye() ? "déjà payé" : "en attente de paiement");
+        reservation.setEstPaye(true);
+        System.out.println(reservation.EstPaye() ? "déjà payé" : "en attente de paiement");
+        reservation.setNbPlaces(6);
+        System.out.println(reservation);
 
-        System.out.println(premierReservationPlaces.getPersonne());
-        System.out.println(premierReservationPlaces.getPersonne().getNom());
-        System.out.println(premierReservationPlaces.getConcert());
-        System.out.println(premierReservationPlaces.getConcert().getDate());
-        System.out.println(premierReservationPlaces.getConcert().getGroupe());
-        System.out.println(premierReservationPlaces.getConcert().getGroupe().getNomChanteur());
+        System.out.println(reservation.getPersonne());
+        System.out.println(reservation.getPersonne().getNom());
+        System.out.println(reservation.getConcert());
+        System.out.println(reservation.getConcert().getDate());
+        System.out.println(reservation.getConcert().getGroupe());
+        System.out.println(reservation.getConcert().getGroupe().getNomChanteur());
     }
 }
