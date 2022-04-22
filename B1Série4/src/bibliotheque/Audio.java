@@ -17,6 +17,6 @@ public class Audio extends Multimedia {
         return (getAnneeAcquisition() < 2000 ? "D" : "N") + getCode();
     }
     public String denomination(){
-        return "Docuement audio";
+        return "Document audio";
     }
 }
