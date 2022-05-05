@@ -21,5 +21,7 @@ public class Principale {
         System.out.println(descampette.depassementMaximal());
 
         System.out.println(descampette.dossierExcesVitesse());
+
+        System.out.println(ExcesVitesse.getMaxVitesseAuFlash() + " " + ExcesVitesse.getLocaliteMaxVitesseAuFlash());
     }
 }

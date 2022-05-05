@@ -4,6 +4,8 @@ public class ExcesVitesse {
     private String localite;
     private int limitationVitesse;
     private int vitesseAuFlash;
+    private static int maxVitesseAuFlash = 0;
+    private static String localiteMaxVitesseAuFlash;
 
     public ExcesVitesse(String localite, int limitationVitesse, int vitesseAuFlash) {
         this.localite = localite;
@@ -34,6 +36,18 @@ public class ExcesVitesse {
             }
         }
 
+        if(this.vitesseAuFlash > maxVitesseAuFlash){
+            maxVitesseAuFlash = this.vitesseAuFlash;
+            localiteMaxVitesseAuFlash = localite;
+        }
+    }
+
+    public static int getMaxVitesseAuFlash() {
+        return maxVitesseAuFlash;
+    }
+
+    public static String getLocaliteMaxVitesseAuFlash() {
+        return localiteMaxVitesseAuFlash;
     }
 
     public int getLimitationVitesse() {

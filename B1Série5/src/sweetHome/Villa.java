@@ -1,5 +1,7 @@
 package sweetHome;
 
+import java.util.stream.IntStream;
+
 public class Villa {
     private String adresse;
     private int nbChambres;
@@ -7,8 +9,12 @@ public class Villa {
     private double surfacecRezChaussee;
     private double surfaceHabitableEtages;
     private double superficieTerrain;
-
     private Proprietaire proprietaire;
+
+    private static int nbChambresTotal = 0;
+    private static int nbVilla = 0;
+    private static double plusGrandJardin = 0;
+    private static String adresseVillaPlusGrandJardin = "";
 
     public Villa(String adresse, int nbChambres, int nbEtages, double surfacecRezChaussee, double surfaceHabitableEtages, double superficieTerrain, Proprietaire proprietaire) {
         this.adresse = adresse;
@@ -19,10 +25,12 @@ public class Villa {
         setSuperficieTerrain(superficieTerrain);
         this.proprietaire = proprietaire;
         this.proprietaire.ajouterVilla(this);
-    }
+        nbVilla++;
 
-    public Villa(String adresse, int nbChambres, int nbEtages, double surfacecRezChaussee, double surfaceHabitableEtages, double superficieTerrain) {
-        this(adresse, nbChambres, nbEtages, surfacecRezChaussee, surfaceHabitableEtages, superficieTerrain, null);
+        if (superficcieJardin() > plusGrandJardin){
+            plusGrandJardin = superficcieJardin();
+            adresseVillaPlusGrandJardin = adresse;
+        }
     }
 
     public Villa(String adresse, int nbChambres, double surfacecRezChaussee, double superficieTerrain, Proprietaire proprietaire) {
@@ -34,6 +42,8 @@ public class Villa {
     }
 
     public void setNbChambres(int nbChambres) {
+        nbChambresTotal = nbChambresTotal - this.nbChambres + nbChambres;
+
         if(nbChambres >=0)
             this.nbChambres = nbChambres;
     }
@@ -62,6 +72,14 @@ public class Villa {
         return nbEtages;
     }
 
+    public Proprietaire getProprietaire() {
+        return proprietaire;
+    }
+
+    public static double moyenneNBChambre() {
+        double moyenneNBChambre = (double) nbChambresTotal / (double) nbVilla;
+        return moyenneNBChambre;
+    }
     public double superficcieJardin(){
         return superficieTerrain - surfacecRezChaussee;
     }
@@ -90,6 +108,13 @@ public class Villa {
         return pourFamilleNombreuse;
     }
 
+    public void changerProprietaire(Proprietaire nouveauProprietaire){
+        proprietaire.retirerVilla(this);
+
+        this.proprietaire = nouveauProprietaire;
+
+        this.proprietaire.ajouterVilla(this);
+    }
     public String toString() {
         return "La villa située au " + adresse + " d'une surface habitable de " + surfaceTotale() + " m2 " + typeJardin() + (pourFamilleNombreuse() ? " convient " : " ne convient pas ") +  "pour une famille nombreuse." ;
     }

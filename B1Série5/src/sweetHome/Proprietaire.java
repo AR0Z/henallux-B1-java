@@ -1,5 +1,7 @@
 package sweetHome;
 
+import java.util.stream.IntStream;
+
 public class Proprietaire {
     public final int NB_MAX_PROPRIETES = 5;
 
@@ -19,18 +21,41 @@ public class Proprietaire {
         nbProprietes = 0;
     }
 
+    public int getNbProprietes() {
+        return nbProprietes;
+    }
+
     public void ajouterVilla(Villa villa){
-        if(nbProprietes < NB_MAX_PROPRIETES){
-            proprietes[nbProprietes] = villa;
-            nbProprietes++;
+        if(villa.getProprietaire() == this){
+            if(nbProprietes < NB_MAX_PROPRIETES){
+                proprietes[nbProprietes] = villa;
+                nbProprietes++;
+            }
         }
+    }
+
+    public void retirerVilla(Villa villa){
+       int i = 0;
+       while(i < nbProprietes && proprietes[i] != villa){
+           i++;
+       }
+       if(proprietes[i] == villa){
+           proprietes[i] = null;
+           i++;
+           while(i < NB_MAX_PROPRIETES){
+               proprietes[i-1] = proprietes[i];
+               i++;
+           }
+           proprietes[NB_MAX_PROPRIETES-1] = null;
+       }
     }
 
     public double surfaceTotale(){
         double surfaceTotale = 0;
 
         for (int i = 0; i < nbProprietes ; i++) {
-            surfaceTotale += proprietes[i].surfaceTotale();
+            if(proprietes[i] != null)
+                surfaceTotale += proprietes[i].surfaceTotale();
         }
 
         return surfaceTotale;
@@ -40,7 +65,8 @@ public class Proprietaire {
         String listingProprietes = "Listing des propriétés de " + prenomNom + "\n";
 
         for (int i = 0; i < nbProprietes ; i++) {
-            listingProprietes += proprietes[i] + "\n";
+            if(proprietes[i] != null)
+                listingProprietes += proprietes[i] + "\n";
         }
 
         listingProprietes += "Surface totale de l'ensemble des propriétés : " + surfaceTotale() + "m2";
